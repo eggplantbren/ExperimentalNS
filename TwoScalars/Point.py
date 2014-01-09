@@ -9,6 +9,12 @@ class Point:
 		self.num_params = num_params
 		self.x = np.empty(self.num_params)
 
+	def from_prior(self):
+		"""
+		Initialise the point using the prior.
+		"""
+		self.x = rng.rand(self.num_params)
+
 	def perturb(self):
 		"""
 		Does a metropolis-hastings proposal that respects the prior (DNest
@@ -26,5 +32,4 @@ class Point:
 		"""
 		return [np.sum(np.abs(self.x - 0.25)),\
 			np.sum(np.abs(self.x - 0.75))]
-
 
