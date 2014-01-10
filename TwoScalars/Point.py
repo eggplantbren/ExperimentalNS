@@ -5,7 +5,7 @@ class Point:
 	"""
 	Represents a point in parameter space.
 	"""
-	def __init__(self, num_params=10000):
+	def __init__(self, num_params=1000):
 		self.num_params = num_params
 		self.x = np.empty(self.num_params)
 
@@ -32,5 +32,5 @@ class Point:
 		Evaluate all the relevant scalars.
 		"""
 		self.scalars = [np.sum(self.x > 0.5),\
-					-0.5*np.sum(self.x**2)]
+					-np.sum(self.x)]
 
