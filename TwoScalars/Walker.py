@@ -58,10 +58,14 @@ if __name__ == '__main__':
 	plt.ion()
 	plt.hold(False)
 	for i in xrange(0, 1000):
-		plt.hist(walker.point.x, 30)
-		plt.title(i)
-		plt.draw()
 		success = walker.advance()
+
+		plt.hist(walker.point.x, 30)
+		plt.title('After {k} iterations, direction = [{a:.2f}, {b:.2f}]'\
+				.format(k=i+1, a=walker.direction[0],\
+						b=walker.direction[1]))
+		plt.draw()
+
 		if success is False:
 			break
 
