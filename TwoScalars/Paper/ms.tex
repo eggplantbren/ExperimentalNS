@@ -8,16 +8,20 @@
 \renewcommand{\textfraction}{0.1}
 \parindent=0cm
 
-\title{Nested Sampling With Two Scalars}
+\title{Nested Sampling With Multiple Scalars}
 \author{Brendon J. Brewer}
 \date{\vspace{3cm}This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 Unported License. To view a copy of this license, visit {\tt http://creativecommons.org/licenses/by-sa/3.0/deed.en\_GB}.}
 
 \begin{document}
 \maketitle
 
+If the prior is $\pi(\mathbf{x})$, then a family of canonical distributions
+is given by
+\begin{eqnarray}
+p(\mathbf{x} | \lambda_1, ..., \lambda_n) = 
+\frac{\exp(-\sum_{i=1}^n \lambda_i f_i(\mathbf{x}))}
+{\mathcal{Z}(\lambda_1, ..., \lambda_n)}
 \end{eqnarray}
-
-
 
 \end{document}
 
