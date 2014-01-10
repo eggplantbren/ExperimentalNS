@@ -41,7 +41,8 @@ class Walker:
 				and rng.rand() <= np.exp(logH):
 				self.point = proposal
 				accept += 1
-		print('Accepted {a}/{b}'.format(a=accept, b=steps))
+		print('Accepted {a}/{b}. Scalars={s}'\
+			.format(a=accept, b=steps, s=self.point.scalars))
 
 		if accept <= 0.05*steps:
 			return False
