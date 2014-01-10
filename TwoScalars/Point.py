@@ -31,6 +31,6 @@ class Point:
 		"""
 		Evaluate all the relevant scalars.
 		"""
-		self.scalars = [np.sum(self.x > 0.5),\
-					-np.sum(self.x)]
+		self.scalars = [-np.sum((self.x - 0.5)**2),\
+				-np.sum(np.sin(2.*np.pi*self.x/0.5)**2)]
 
