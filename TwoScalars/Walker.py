@@ -25,7 +25,7 @@ class Walker:
 		# Keep track of which choices were made
 		self.choices = []
 
-	def advance(self, steps=10000):
+	def advance(self, steps=1000):
 		choice = rng.choice(np.arange(0, self.num_scalars),\
 				p=self.direction)
 		self.choices.append(choice)
@@ -57,7 +57,7 @@ if __name__ == '__main__':
 
 	plt.ion()
 	plt.hold(False)
-	for i in xrange(0, 10000):
+	for i in xrange(0, 1000):
 		plt.hist(walker.point.x, 30)
 		plt.title(i)
 		plt.draw()
