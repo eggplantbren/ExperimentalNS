@@ -11,11 +11,7 @@ def do_run(filename):
 	for i in xrange(0, 100):
 		success = walker.advance()
 
-		plt.hist(walker.point.x, 30)
-		plt.title('After {k} iterations, direction = [{a:.3f}, {b:.3f}]'\
-				.format(k=i+1, a=walker.direction[0],\
-						b=walker.direction[1]))
-		plt.xlim([0., 1.])
+		walker.point.plot_state(i, walker.direction)
 		plt.draw()
 
 		if success is False:

@@ -1,5 +1,6 @@
 import numpy as np
 import numpy.random as rng
+import matplotlib.pyplot as plt
 
 class Point:
 	"""
@@ -30,6 +31,14 @@ class Point:
 		self.x[which] = np.mod(self.x[which], 1.)
 		self.calculate_scalars()
 		return 0.
+
+	def plot_state(self, i, direction):
+		plt.hist(self.x, 30)
+		plt.title('After {k} iterations, direction = [{a:.3f}, {b:.3f}]'\
+				.format(k=i+1, a=direction[0],\
+						b=direction[1]))
+		plt.xlim([0., 1.])
+
 
 	def calculate_scalars(self):
 		"""
