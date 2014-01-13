@@ -24,8 +24,11 @@ class Walker:
 
 		# Keep track of which choices were made
 		self.choices = []
+		self.keep = []
 
 	def advance(self, steps=1000):
+		self.keep.append(self.point.scalars)
+
 		choice = rng.choice(np.arange(0, self.num_scalars),\
 				p=self.direction)
 		self.choices.append(choice)
