@@ -21,8 +21,12 @@ class Point:
 		Does a metropolis-hastings proposal that respects the prior (DNest
 		style).
 		"""
-		which = rng.randint(self.num_params)
-		self.x[which] += 10.**(1.5 - 6.*rng.rand())*rng.randn()
+		count = 1
+		if rng.rand() <= 0.5:
+			count += rng.randint(20)
+
+		which = rng.randint(self.num_params, size=count)
+		self.x[which] += 10.**(1.5 - 6.*rng.rand(count))*rng.randn(count)
 		self.x[which] = np.mod(self.x[which], 1.)
 		self.calculate_scalars()
 		return 0.
