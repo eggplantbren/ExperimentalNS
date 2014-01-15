@@ -10,7 +10,7 @@ int main()
 
 	cout<<setprecision(12);
 	for(int i=0; i<20; i++)
-		cout<<RNG::rand()<<endl;
+		cout<<RNG::randn()<<endl;
 
 	return 0;
 }

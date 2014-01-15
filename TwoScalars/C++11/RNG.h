@@ -12,6 +12,7 @@ class RNG
 
 		// Distributions
 		static std::uniform_real_distribution<> uniform;
+		static std::normal_distribution<> normal;
 
 	public:
 		// Initialise the engine with a seed
