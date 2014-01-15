@@ -14,11 +14,14 @@ class Walker
 	private:
 		Type point;		
 		std::vector<double> direction;
+		std::vector<double> edge;
+		std::vector<double> edge_tiebreakers;
 
 	public:
 		Walker();
 
 		void initialise();
+		void advance(int steps);
 
 };
 
