@@ -5,7 +5,7 @@
 using namespace std;
 
 Point::Point(int num_scalars)
-:scalars(num_scalars), tiebreakers(num_scalars)
+:num_scalars(num_scalars), scalars(num_scalars), tiebreakers(num_scalars)
 {
 
 }
