@@ -33,10 +33,22 @@ void Walker<Type>::initialise()
 	point.from_prior();
 	point.from_prior_tiebreakers();
 
-	std::cout<<"# Initialised a walker with direction: ";
-	for(double d : direction)
-		std::cout<<d<<"   ";
-	std::cout<<std::endl;
+	std::cout<<"# Initialised a walker with direction (";
+	for(size_t i=0; i<direction.size(); i++)
+	{
+		std::cout<<direction[i];
+		if((i+1) != direction.size())
+			std::cout<<", ";
+	}
+	std::cout<<")."<<std::endl;
+	std::cout<<"# Edge 0: (";
+	for(size_t i=0; i<edge.size(); i++)
+	{
+		std::cout<<edge[i];
+		if((i+1) != edge.size())
+			std::cout<<", ";
+	}
+	std::cout<<")."<<std::endl;
 }
 
 template<class Type>
