@@ -8,6 +8,7 @@ Walker<Type>::Walker()
 :direction(point.get_num_scalars())
 ,edge(point.get_num_scalars())
 ,edge_tiebreakers(point.get_num_scalars())
+,iterations(0)
 {
 }
 
@@ -44,5 +45,44 @@ void Walker<Type>::advance(int steps)
 	int choice = RNG::randInt(direction);
 	edge[choice] = point.get_scalars()[choice];
 	edge_tiebreakers[choice] = point.get_tiebreakers()[choice];
+
+	std::cout<<"# Edge "<<(iterations + 1)<<": ";
+	for(double d : edge)
+		std::cout<<d<<"   ";
+	std::cout<<". Exploring..."<<std::flush;
+
+	Type proposal;
+	for(int i=0; i<steps; i++)
+	{
+		proposal = point;
+		double logH = proposal.perturb();
+
+		if(is_okay(proposal) && RNG::rand() <= exp(logH))
+			point = proposal;
+	}
+
+	std::cout<<"done."<<std::endl;
+	iterations++;
+}
+
+template<class Type>
+bool Walker<Type>::is_okay(const Type& t)
+{
+	const std::vector<double>& scalars = t.get_scalars();
+	const std::vector<double>& tiebreakers = t.get_tiebreakers();
+
+	bool result = true;
+	for(size_t i=0; i<scalars.size(); i++)
+	{
+		if(scalars[i] < edge[i] ||
+			(scalars[i] == edge[i] &&
+				tiebreakers[i] < edge_tiebreakers[i]))
+		{
+			result = false;
+			break;
+		}
+	}
+
+	return result;
 }
 

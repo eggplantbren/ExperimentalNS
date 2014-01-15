@@ -4,6 +4,8 @@
 
 #include <cmath>
 
+using namespace std;
+
 Example::Example()
 :Point(2), params(1000)
 {
@@ -45,5 +47,12 @@ void Example::compute_scalars()
 	scalars[1] = 0.;
 	for(double x : params)
 		scalars[1] += -pow(sin(2.*M_PI*x/0.5), 2);
+}
+
+ostream& operator << (ostream& out, const Example& e)
+{
+	for(double x : e.params)
+		out<<x<<' ';
+	return out;
 }
 

@@ -3,6 +3,7 @@
 
 #include "Point.h"
 #include <vector>
+#include <ostream>
 
 class Example:public Point
 {
@@ -15,6 +16,7 @@ class Example:public Point
 		void from_prior();
 		double perturb();
 
+	friend std::ostream& operator << (std::ostream& out, const Example& e);
 };
 
 #endif
