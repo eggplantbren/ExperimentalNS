@@ -4,9 +4,8 @@
 
 template<class Type>
 Walker<Type>::Walker()
-:direction(point.get_scalars().size())
+:direction(point.get_num_scalars())
 {
-
 }
 
 template<class Type>

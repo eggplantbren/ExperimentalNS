@@ -12,10 +12,14 @@
 class Point
 {
 	protected:
+		int num_scalars;
 		std::vector<double> scalars;
 		std::vector<double> tiebreakers;
 
 	public:
+		// Pass in the number of scalars
+		Point(int num_scalars);
+
 		// Generate the point from the prior
 		virtual void from_prior() = 0;
 
@@ -29,6 +33,7 @@ class Point
 		void perturb_tiebreakers();
 
 		// Getters for scalars and tiebreakers
+		int get_num_scalars() const { return num_scalars; }
 		const std::vector<double>& get_scalars() const
 		{
 			return scalars;

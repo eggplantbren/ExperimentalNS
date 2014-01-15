@@ -4,6 +4,12 @@
 
 using namespace std;
 
+Point::Point(int num_scalars)
+:scalars(num_scalars), tiebreakers(num_scalars)
+{
+
+}
+
 void Point::from_prior_tiebreakers()
 {
 	for(double& t : tiebreakers)
