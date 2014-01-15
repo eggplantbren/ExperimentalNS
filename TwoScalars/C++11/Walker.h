@@ -22,5 +22,7 @@ class Walker
 
 };
 
+#include "WalkerImpl.h"
+
 #endif
 
