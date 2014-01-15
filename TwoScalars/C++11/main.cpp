@@ -8,7 +8,7 @@ using namespace std;
 
 int main()
 {
-	RNG::seed(0);
+	RNG::seed();
 
 	Walker<Example> walker;
 	walker.initialise();

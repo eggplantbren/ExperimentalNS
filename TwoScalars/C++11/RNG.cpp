@@ -1,4 +1,5 @@
 #include "RNG.h"
+#include <ctime>
 
 using namespace std;
 
@@ -6,6 +7,11 @@ using namespace std;
 mt19937 RNG::engine;
 uniform_real_distribution<> RNG::uniform(0., 1.);
 normal_distribution<> RNG::normal(0., 1.);
+
+void RNG::seed()
+{
+	engine.seed(time(0));
+}
 
 void RNG::seed(unsigned long value)
 {

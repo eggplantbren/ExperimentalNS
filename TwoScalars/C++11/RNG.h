@@ -15,6 +15,9 @@ class RNG
 		static std::normal_distribution<> normal;
 
 	public:
+		// Seed with the time
+		static void seed();
+
 		// Initialise the engine with a seed
 		static void seed(unsigned long value);
 
