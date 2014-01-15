@@ -22,3 +22,8 @@ double RNG::randn()
 	return normal(engine);	
 }
 
+int RNG::randInt(int n)
+{
+	return static_cast<int>(n*RNG::rand());
+}
+

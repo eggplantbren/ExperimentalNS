@@ -21,6 +21,9 @@ class RNG
 		// Generate from distributions
 		static double rand();
 		static double randn();
+
+		// Generate integer from {0, 1, 2, ..., max-1}
+		static int randInt(int n);
 };
 
 #endif
