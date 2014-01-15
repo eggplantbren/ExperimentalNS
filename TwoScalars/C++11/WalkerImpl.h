@@ -55,6 +55,7 @@ void Walker<Type>::advance(int steps)
 	}
 	std::cout<<"). Exploring..."<<std::flush;
 
+	int accepts = 0;
 	Type proposal;
 	for(int i=0; i<steps; i++)
 	{
@@ -62,10 +63,13 @@ void Walker<Type>::advance(int steps)
 		double logH = proposal.perturb();
 
 		if(is_okay(proposal) && RNG::rand() <= exp(logH))
+		{
 			point = proposal;
+			accepts++;
+		}
 	}
 
-	std::cout<<"done."<<std::endl;
+	std::cout<<"done. Accepted "<<accepts<<"/"<<steps<<"."<<std::endl;
 	iterations++;
 }
 
