@@ -27,5 +27,6 @@ void Walker<Type>::initialise()
 	std::cout<<"# Initialised a walker with direction: ";
 	for(double d : direction)
 		std::cout<<d<<"   ";
+	std::cout<<std::endl;
 }
 
