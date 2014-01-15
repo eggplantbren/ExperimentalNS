@@ -1,5 +1,6 @@
 #include "Example.h"
 #include "RNG.h"
+#include "Utils.h"
 
 #include <cmath>
 
@@ -18,6 +19,19 @@ void Example::from_prior()
 
 double Example::perturb()
 {
+	int reps = 1;
+	if(RNG::rand() <= 0.5)
+		reps += 1 + RNG::randInt(9);
+
+
+	int which;
+	for(int i=0; i<reps; i++)
+	{
+		which = RNG::randInt(params.size());
+		params[which] += RNG::randh();
+		params[which] = mod(params[which], 1.);
+	}
+
 	compute_scalars();
 	return 0.;
 }
