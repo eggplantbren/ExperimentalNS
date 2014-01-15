@@ -46,10 +46,14 @@ void Walker<Type>::advance(int steps)
 	edge[choice] = point.get_scalars()[choice];
 	edge_tiebreakers[choice] = point.get_tiebreakers()[choice];
 
-	std::cout<<"# Edge "<<(iterations + 1)<<": ";
-	for(double d : edge)
-		std::cout<<d<<"   ";
-	std::cout<<". Exploring..."<<std::flush;
+	std::cout<<"# Edge "<<(iterations + 1)<<": (";
+	for(size_t i=0; i<edge.size(); i++)
+	{
+		std::cout<<edge[i];
+		if((i+1) != edge.size())
+			std::cout<<", ";
+	}
+	std::cout<<"). Exploring..."<<std::flush;
 
 	Type proposal;
 	for(int i=0; i<steps; i++)
