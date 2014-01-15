@@ -22,6 +22,9 @@ class RNG
 		static double rand();
 		static double randn();
 
+		// Generate from my favorite heavy-tailed distribution
+		static double randh();
+
 		// Generate integer from {0, 1, 2, ..., max-1}
 		static int randInt(int n);
 };

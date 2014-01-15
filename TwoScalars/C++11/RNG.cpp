@@ -22,6 +22,11 @@ double RNG::randn()
 	return normal(engine);	
 }
 
+double RNG::randh()
+{
+	return pow(10., 1.5 - 6.*rand())*randn();
+}
+
 int RNG::randInt(int n)
 {
 	return static_cast<int>(n*RNG::rand());
