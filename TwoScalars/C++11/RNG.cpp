@@ -24,7 +24,7 @@ double RNG::randn()
 
 double RNG::randh()
 {
-	return pow(10., 1.5 - 6.*rand())*randn();
+	return pow(10., 1.5 - 6.*RNG::rand())*RNG::randn();
 }
 
 int RNG::randInt(int n)
