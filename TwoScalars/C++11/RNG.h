@@ -27,6 +27,11 @@ class RNG
 
 		// Generate integer from {0, 1, 2, ..., max-1}
 		static int randInt(int n);
+
+		// Generate integer from {0, 1, 2, ..., max-1}
+		// with non-equal probabilities
+		static int randInt(const std::vector<double>& p);
+
 };
 
 #endif

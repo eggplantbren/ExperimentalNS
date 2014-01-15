@@ -32,3 +32,9 @@ int RNG::randInt(int n)
 	return static_cast<int>(n*RNG::rand());
 }
 
+int RNG::randInt(const std::vector<double>& p)
+{
+	discrete_distribution<int> d(p.begin(), p.end());
+	return d(engine);
+}
+
