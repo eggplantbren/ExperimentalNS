@@ -1,3 +1,4 @@
+# Display file for Potts
 from pylab import *
 
 output = atleast_2d(loadtxt('output.txt'))
