@@ -3,7 +3,7 @@
 #include <fstream>
 #include "RNG.h"
 #include "Walker.h"
-#include "Models/Gravity.h"
+#include "Models/Potts.h"
 
 using namespace std;
 
@@ -11,7 +11,7 @@ int main()
 {
 	RNG::seed();
 
-	Walker<Gravity> walker;
+	Walker<Potts> walker;
 	walker.initialise();
 
 	fstream fout("output.txt", ios::out);
