@@ -2,7 +2,7 @@ from pylab import *
 
 output = atleast_2d(loadtxt('output.txt'))
 
-figure(figsize=(12, 6))
+figure(figsize=(13, 6))
 ion()
 hold(False)
 for i in xrange(0, output.shape[0]):
