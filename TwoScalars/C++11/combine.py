@@ -2,9 +2,9 @@ from pylab import *
 
 all_logx = []
 
-for k in xrange(0, 10):
+for k in xrange(0, 1):
 	# Fake sets of choices
-	choices = (rand(100) <= rand()).astype('int')
+	choices = loadtxt('choices.txt')
 
 	edge = array([0., 0.])
 	logx = empty((len(choices), 2))
