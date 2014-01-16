@@ -52,7 +52,7 @@ void Walker<Type>::initialise()
 }
 
 template<class Type>
-void Walker<Type>::advance(int steps)
+bool Walker<Type>::advance(int steps)
 {
 	int choice = RNG::randInt(direction);
 	edge[choice] = point.get_scalars()[choice];
@@ -82,7 +82,11 @@ void Walker<Type>::advance(int steps)
 	}
 
 	std::cout<<"done. Accepted "<<accepts<<"/"<<steps<<"."<<std::endl;
+	if(static_cast<double>(accepts)/steps < 0.05)
+		return false;
 	iterations++;
+
+	return true;
 }
 
 template<class Type>

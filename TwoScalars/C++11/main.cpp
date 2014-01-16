@@ -17,9 +17,11 @@ int main()
 	fstream fout("output.txt", ios::out);
 	for(int i=0; i<2000; i++)
 	{
-		walker.advance(1000);
+		bool success = walker.advance(1000);
 		if(i%10 == 0)
 			fout<<setprecision(3)<<walker.get_point()<<endl;
+		if(!success)
+			break;
 	}
 	fout.close();
 

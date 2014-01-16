@@ -27,7 +27,7 @@ class Walker
 		Walker();
 
 		void initialise();
-		void advance(int steps);
+		bool advance(int steps);
 
 		const Type& get_point() const { return point; }
 };
