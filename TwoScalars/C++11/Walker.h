@@ -7,6 +7,7 @@
 */
 
 #include <vector>
+#include <fstream>
 
 template<class Type>
 class Walker
@@ -18,6 +19,10 @@ class Walker
 		std::vector<double> edge_tiebreakers;
 
 		int iterations;
+
+		// Write decisions (which way to compress)
+		// to this file
+		std::fstream choices_file;
 
 		// Returns 'true' if the point 't' is above the
 		// threshold as defined by 'edge' and 'edge_tiebreakers'

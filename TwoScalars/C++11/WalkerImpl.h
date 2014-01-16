@@ -9,6 +9,7 @@ Walker<Type>::Walker()
 ,edge(point.get_num_scalars())
 ,edge_tiebreakers(point.get_num_scalars())
 ,iterations(0)
+,choices_file("choices.txt", std::ios::out)
 {
 }
 
@@ -57,6 +58,7 @@ bool Walker<Type>::advance(int steps)
 	int choice = RNG::randInt(direction);
 	edge[choice] = point.get_scalars()[choice];
 	edge_tiebreakers[choice] = point.get_tiebreakers()[choice];
+	choices_file<<choice<<' '<<std::flush;
 
 	std::cout<<"# Edge "<<(iterations + 1)<<": (";
 	for(size_t i=0; i<edge.size(); i++)
