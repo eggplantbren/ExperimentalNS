@@ -15,7 +15,7 @@ int main()
 	walker.initialise();
 
 	fstream fout("output.txt", ios::out);
-	for(int i=0; i<5000; i++)
+	for(int i=0; i<2000; i++)
 	{
 		walker.advance(100000);
 		if(i%10 == 0)
