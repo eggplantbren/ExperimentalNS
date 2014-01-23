@@ -14,6 +14,7 @@ class Potts:public Point
 
 		// So we can just update on the fly
 		int score;
+		int score2;
 
 		void compute_score();
 		void compute_scalars();

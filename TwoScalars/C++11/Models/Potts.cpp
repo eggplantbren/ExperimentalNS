@@ -26,6 +26,7 @@ void Potts::from_prior()
 void Potts::compute_score()
 {
 	score = 0;
+	score2 = 0;
 
 	// Coordinates of neighbouring cells
 	vector<int> ii(4); vector<int> jj(4);
@@ -48,6 +49,7 @@ void Potts::compute_score()
 			for(int k=0; k<4; k++)
 				if(x[i][j] == x[ii[k]][jj[k]])
 					score++;
+			score2 += ((int)i - (int)j)*x[i][j];
 		}
 	}
 }
@@ -85,6 +87,7 @@ double Potts::perturb()
 		for(int k=0; k<4; k++)
 			if(x[i][j] == x[ii[k]][jj[k]])
 				score--;
+		score2 -= ((int)i - (int)j)*x[i][j];
 
 		// Perturb the cell
 		x[i][j] = RNG::randInt(num_colors);
@@ -93,6 +96,7 @@ double Potts::perturb()
 		for(int k=0; k<4; k++)
 			if(x[i][j] == x[ii[k]][jj[k]])
 				score++;
+		score2 += ((int)i - (int)j)*x[i][j];
 	}
 
 	compute_scalars();
@@ -102,7 +106,7 @@ double Potts::perturb()
 void Potts::compute_scalars()
 {
 	scalars[0] = 0.5*score;
-	scalars[1] = 0.5*score;
+	scalars[1] = 0.5*score2;
 }
 
 ostream& operator << (ostream& out, const Potts& e)
@@ -110,7 +114,7 @@ ostream& operator << (ostream& out, const Potts& e)
 	for(size_t i=0; i<e.x.size(); i++)
 		for(size_t j=0; j<e.x[i].size(); j++)
 			out<<e.x[i][j]<<' ';
-	out<<e.score;
+	out<<e.score<<' '<<e.score2;
 	return out;
 }
 
