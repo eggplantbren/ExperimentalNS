@@ -1,7 +1,7 @@
 # Display file for Potts
 from pylab import *
 
-output = atleast_2d(loadtxt('output.txt'))
+output = atleast_2d(loadtxt('Output/output0.txt'))
 
 ion()
 hold(False)

@@ -41,6 +41,10 @@ class Walker
 		const Type& get_point() const { return point; }
 };
 
+// Function to create and launch a walker
+template<class Type>
+void launch_walker(int identity, int thin);
+
 #include "WalkerImpl.h"
 
 #endif
