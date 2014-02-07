@@ -11,7 +11,7 @@ int main()
 {
 	RNG::seed();
 
-	Walker<Potts> walker;
+	Walker<Potts> walker(0);
 	walker.initialise();
 
 	fstream fout("output.txt", ios::out);

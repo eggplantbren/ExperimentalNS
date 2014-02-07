@@ -2,15 +2,22 @@
 #include "RNG.h"
 #include <iostream>
 #include <vector>
+#include <string>
 
 template<class Type>
-Walker<Type>::Walker()
-:direction(point.get_num_scalars())
+Walker<Type>::Walker(int identity)
+:identity(identity)
+,direction(point.get_num_scalars())
 ,edge(point.get_num_scalars())
 ,edge_tiebreakers(point.get_num_scalars())
 ,iterations(0)
-,choices_file("choices.txt", std::ios::out)
 {
+	std::string filename("Output/choices");
+	filename += std::to_string(identity);
+	filename += std::string(".txt");
+
+	std::cout<<filename<<std::endl;
+	choices_file.open(filename.c_str(), std::ios::out);
 }
 
 template<class Type>

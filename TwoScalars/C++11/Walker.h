@@ -13,6 +13,10 @@ template<class Type>
 class Walker
 {
 	private:
+		// Just a number that will get appended to the output files
+		// from this walker.
+		int identity;
+
 		Type point;		
 		std::vector<double> direction;
 		std::vector<double> edge;
@@ -29,7 +33,7 @@ class Walker
 		bool is_okay(const Type& t);
 
 	public:
-		Walker();
+		Walker(int identity);
 
 		void initialise();
 		bool advance(int steps);
