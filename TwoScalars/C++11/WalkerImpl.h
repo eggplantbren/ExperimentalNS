@@ -123,7 +123,7 @@ bool Walker<Type>::is_okay(const Type& t)
 
 // Function to create and launch a walker
 template<class Type>
-void launch_walker(int identity, int thin)
+void launch_walker(int identity, int max_iterations, int mcmc_steps, int thin)
 {
 	RNG::seed(identity);
 
@@ -135,11 +135,11 @@ void launch_walker(int identity, int thin)
 	walker.initialise();
 
 	std::fstream fout(filename.c_str(), std::ios::out);
-	for(int i=0; i<2000; i++)
+	for(int i=0; i<max_iterations; i++)
 	{
-		bool success = walker.advance(10000);
+		bool success = walker.advance(mcmc_steps);
 		if(i%thin == 0)
-			fout<<std::setprecision(3)<<walker.get_point()<<std::endl;
+			fout<<std::setprecision(8)<<walker.get_point()<<std::endl;
 		if(!success)
 			break;
 	}
