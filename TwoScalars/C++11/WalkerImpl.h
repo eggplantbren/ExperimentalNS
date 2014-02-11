@@ -30,11 +30,11 @@ void Walker<Type>::initialise()
 	for(double& e : edge_tiebreakers)
 		e = 0.;
 
-	// Choose direction from a dirichlet(1,...,1) distribution
+	// Choose a direction
 	double total = 0.;
 	for(double& d : direction)
 	{
-		d = -log(RNG::rand());
+		d = exp(2*RNG::randn());
 		total += d;
 	}
 	for(double& d : direction)
