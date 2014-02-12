@@ -2,9 +2,12 @@ from pylab import *
 
 all_logx = []
 
-for k in xrange(0, 1):
-	# Fake sets of choices
-	choices = loadtxt('choices.txt')
+for k in xrange(0, 10):
+	# Load choices
+	try:
+		choices = loadtxt('choices' + str(k) + '.txt')
+	except:
+		break
 
 	edge = array([0., 0.])
 	logx = empty((len(choices), 2))
@@ -13,7 +16,7 @@ for k in xrange(0, 1):
 		logx[i, :] = edge + log(rand(2))
 		edge[choices[i]] = logx[i, choices[i]]
 
-	plot(logx[:,0], logx[:,1], 'bo-', alpha=0.25)
+	plot(logx[:,0], logx[:,1], 'o', alpha=0.25)
 
 	all_logx.append(logx)
 	axis('equal')
