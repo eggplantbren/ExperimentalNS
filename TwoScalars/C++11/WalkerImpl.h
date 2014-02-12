@@ -34,7 +34,7 @@ void Walker<Type>::initialise()
 	double total = 0.;
 	for(double& d : direction)
 	{
-		d = exp(2*RNG::randn());
+		d = exp(3*RNG::randn());
 		total += d;
 	}
 	for(double& d : direction)
