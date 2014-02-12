@@ -125,8 +125,6 @@ bool Walker<Type>::is_okay(const Type& t)
 template<class Type>
 void launch_walker(int identity, int max_iterations, int mcmc_steps, int thin)
 {
-	RNG::seed(identity);
-
 	std::string filename("Output/output");
 	filename += std::to_string(identity);
 	filename += std::string(".txt");
