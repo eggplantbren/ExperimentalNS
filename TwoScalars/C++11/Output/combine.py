@@ -1,8 +1,17 @@
 from pylab import *
 
+def rank(x):
+	y = sort(x)
+	r = zeros(len(x)).astype('int64')
+	for i in xrange(0, len(x)):
+		index = nonzero(y == x[i])[0]
+		assert len(index) == 1
+		r[i] = index
+	return r
+
 all_logx = []
 
-for k in xrange(0, 10):
+for k in xrange(0, 10000):
 	# Load choices
 	try:
 		choices = loadtxt('choices' + str(k) + '.txt')
@@ -16,13 +25,12 @@ for k in xrange(0, 10):
 		logx[i, :] = edge + log(rand(2))
 		edge[choices[i]] = logx[i, choices[i]]
 
-	plot(logx[:,0], logx[:,1], 'o', alpha=0.25)
+	plot(logx[:,0], logx[:,1], '-')
 
 	all_logx.append(logx)
 	axis('equal')
 show()
 
 all_logx = vstack(all_logx)
-print(argsort(all_logx[:,0]))
-print(argsort(all_logx[:,1]))
+print(all_logx)
 
