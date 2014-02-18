@@ -1,7 +1,7 @@
 # Display file for Gravity
 from pylab import *
 
-output = atleast_2d(loadtxt('output.txt'))
+output = atleast_2d(loadtxt('Output/output0.txt'))
 
 figure(figsize=(13, 6))
 ion()
