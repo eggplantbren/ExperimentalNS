@@ -8,7 +8,7 @@
 class Gravity:public Point
 {
 	private:
-		std::vector<double> x, y, vx, vy;
+		std::vector<double> x, y, z, vx, vy, vz;
 
 		long double PE, KE, L;
 		int staleness;
