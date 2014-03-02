@@ -15,6 +15,7 @@ for k in xrange(0, 10000):
 	# Load choices
 	try:
 		choices = loadtxt('choices' + str(k) + '.txt')
+		scalars = loadtxt('scalars' + str(k) + '.txt')
 	except:
 		break
 
