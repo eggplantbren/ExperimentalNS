@@ -14,12 +14,24 @@ Walker<Type>::Walker(int identity)
 ,edge_tiebreakers(point.get_num_scalars())
 ,iterations(0)
 {
-	std::string filename("Output/choices");
-	filename += std::to_string(identity);
-	filename += std::string(".txt");
+	std::string filename1("Output/choices");
+	filename1 += std::to_string(identity);
+	filename1 += std::string(".txt");
 
-	std::cout<<filename<<std::endl;
-	choices_file.open(filename.c_str(), std::ios::out);
+	choices_file.open(filename1.c_str(), std::ios::out);
+
+	std::string filename2("Output/scalars");
+	filename2 += std::to_string(identity);
+	filename2 += std::string(".txt");
+
+	scalars_file.open(filename2.c_str(), std::ios::out);
+}
+
+template<class Type>
+Walker<Type>::~Walker()
+{
+	choices_file.close();
+	scalars_file.close();
 }
 
 template<class Type>
@@ -64,10 +76,15 @@ void Walker<Type>::initialise()
 template<class Type>
 bool Walker<Type>::advance(int steps)
 {
+	const std::vector<double>& scalars = point.get_scalars();
 	int choice = RNG::randInt(direction);
-	edge[choice] = point.get_scalars()[choice];
+	edge[choice] = scalars[choice];
 	edge_tiebreakers[choice] = point.get_tiebreakers()[choice];
+
 	choices_file<<choice<<' '<<std::flush;
+	for(size_t i=0; i<scalars.size(); i++)
+		scalars_file<<scalars[i]<<' ';
+	scalars_file<<std::endl;
 
 	std::cout<<"# Edge "<<(iterations + 1)<<": (";
 	for(size_t i=0; i<edge.size(); i++)

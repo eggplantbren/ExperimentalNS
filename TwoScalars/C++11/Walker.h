@@ -27,6 +27,8 @@ class Walker
 		// Write decisions (which way to compress)
 		// to this file
 		std::fstream choices_file;
+		// Write values of scalars to this file
+		std::fstream scalars_file;
 
 		// Returns 'true' if the point 't' is above the
 		// threshold as defined by 'edge' and 'edge_tiebreakers'
@@ -34,6 +36,7 @@ class Walker
 
 	public:
 		Walker(int identity);
+		~Walker();
 
 		void initialise();
 		bool advance(int steps);
