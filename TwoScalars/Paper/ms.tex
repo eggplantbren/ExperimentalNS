@@ -28,8 +28,10 @@ between the prior and the posterior. However, in some inference and
 statistical mechanics problems, there are two or more scalar functions of
 $\mathbf{x}$ that are relevant. For example, we might be interested in the
 properties of
-$p(\mathbf{x} | \lambda_1, \lambda_2) \propto \exp\left[-\lambda_1 f_1(\mathbf{x}) - \lambda_2 f_2(\mathbf{x})\right]$
-for many different values of $\lambda_1$ and $\lambda_2$. This work describes
+$p(\mathbf{x} | \lambda_1, \lambda_2) \propto \pi(\mathbf{x})\exp\left[-\lambda_1 f_1(\mathbf{x}) - \lambda_2 f_2(\mathbf{x})\right]$
+for many different values of $\lambda_1$ and $\lambda_2$, including the
+normalisations or ``partition function'' $\mathcal{Z}(\lambda_1, \lambda_2)$.
+This work describes
 progress towards solving this class of problems while maintaining the benefits
 of Nested Sampling, such as the ability to cope with first-order phase
 transitions.
