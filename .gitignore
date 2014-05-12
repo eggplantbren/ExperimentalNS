@@ -1,4 +1,10 @@
 TwoScalars/C++11/Output/*.txt
 *.pdf
 *.pyc
+conference_poster_2.aux
+conference_poster_2.log
+conference_poster_2.nav
+conference_poster_2.out
+conference_poster_2.snm
+conference_poster_2.toc
 
