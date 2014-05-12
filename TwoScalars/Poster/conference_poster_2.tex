@@ -76,13 +76,27 @@
 %	OBJECTIVES
 %----------------------------------------------------------------------------------------
 
-\begin{block}{Objectives}
+\begin{block}{Abstract}
 
-\begin{enumerate}
-\item Donec fringilla, velit id lobortis commodo, eros dui consectetur mi, ut interdum lorem dui sed mauris.
-\item Nulla ac nulla rhoncus est bibendum ullamcorper:
-\item Quisque vestibulum, nisl sit amet gravida ultricies dis parturient montes, nascetur ridiculus musobortis commodo, eros dui consectetur mi.
-\end{enumerate}
+Nested Sampling is an effective and popular
+Monte Carlo algorithm for Bayesian computation. It is based on exploring the
+prior $\pi(\mathbf{x})$ and successively imposing constraints on the value of
+the likelihood $\mathcal{L}(\mathbf{x})$ that compress the prior mass by a
+``known'' factor. This enables the calculation of the marginal likelihood
+or evidence
+$\mathcal{Z} = \int \pi(\mathbf{x})\mathcal{L}(\mathbf{x}) \, d^N\mathbf{x}$ and
+properties of the posterior, or any other distribution that is intermediate
+between the prior and the posterior. However, in some inference and
+statistical mechanics problems, there are two or more scalar functions of
+$\mathbf{x}$ that are relevant. For example, we might be interested in the
+properties of
+$p(\mathbf{x} | \lambda_1, \lambda_2) \propto \pi(\mathbf{x})\exp\left[-\lambda_1 f_1(\mathbf{x}) - \lambda_2 f_2(\mathbf{x})\right]$
+for many different values of $\lambda_1$ and $\lambda_2$, including the
+normalisations or ``partition function'' $\mathcal{Z}(\lambda_1, \lambda_2)$.
+This work describes
+progress towards solving this class of problems while maintaining the benefits
+of Nested Sampling, such as the ability to cope with first-order phase
+transitions.
 
 \end{block}
 
