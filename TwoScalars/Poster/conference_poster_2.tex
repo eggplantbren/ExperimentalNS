@@ -106,9 +106,20 @@ transitions.
             
 \begin{block}{Introduction}
 
-\begin{itemize}
-\item Donec fringilla, velit id lobortis commodo, eros dui consectetur mi, ut interdum lorem dui sed mauris. Duis id sem nunc, a pharetra odio. Phasellus posuere \alert{semper massa}, id bibendum ligula tristique at. Integer sit amet vulputate turpis. Sed erat lacus, faucibus at viverra et, mattis nec sem. Cras faucibus \alert{scelerisque} cursus. Opet volutpat ligula. Duis semper lorem eget dui dignissim porttitor. Nulla facilisi. In ullamcorper lorem quis dolor iaculis nec egestas enim ultricies. Cras ut mauris elit, ut lacinia dui. Proin in ante et libero hendrerit iaculis. Nulla eu erat a urna laoreet auctor id a turpis. Nam mollis tristique neque eu luctus. Suspendisse rutrum congue nisi sed convallis. Aenean id neque dolor.
-\end{itemize}
+In statistical mechanics, a family of ``canonical distributions'' is given by
+\begin{eqnarray}
+p(\mathbf{x} | \lambda_1, \lambda_2) \propto
+\pi(\mathbf{x})
+\exp\left[-\lambda_1 f_1(\mathbf{x}) - \lambda_2 f_2(\mathbf{x})\right]
+\end{eqnarray}
+The normalisation, or ``partition function'', depends on the $\lambda$
+parameters:
+
+\begin{eqnarray}
+\mathcal{Z} = \int \pi(\mathbf{x})
+\exp\left[-\lambda_1 f_1(\mathbf{x}) - \lambda_2 f_2(\mathbf{x})\right]
+\, d^N \mathbf{x}
+\end{eqnarray}
 
 \end{block}
 
