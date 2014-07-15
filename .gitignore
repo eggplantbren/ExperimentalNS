@@ -1,4 +1,5 @@
 TwoScalars/DNest/*.txt
+TwoScalars/DNest/run_walker
 TwoScalars/C++11/Output/*.txt
 *.pdf
 *.pyc
