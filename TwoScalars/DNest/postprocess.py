@@ -96,6 +96,8 @@ def postprocess(temperature=1., numResampleLogX=1, plot=True, loaded=[], \
 
 	# Find sandwiching level for each sample
 	sandwich = sample_info[:,0].copy().astype('int')
+	sandwich *= 0
+
 	for i in xrange(0, sample.shape[0]):
 		while sandwich[i] < levels.shape[0]-1 and logl_samples[i] > logl_levels[sandwich[i] + 1]:
 			sandwich[i] += 1
@@ -219,5 +221,5 @@ def postprocess(temperature=1., numResampleLogX=1, plot=True, loaded=[], \
 			plt.ioff()
 		plt.show()
 
-	return [logz_estimate, H_estimate, logx_samples]
+	return [logz_estimate, H_estimate, logx_samples, logp_samples.flatten()]
 
