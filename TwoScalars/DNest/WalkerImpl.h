@@ -73,7 +73,7 @@ bool Walker<Type>::advance(int steps)
 	const std::vector<double>& scalars = point.get_scalars();
 	int choice = DNest3::randInt(scalars.size());
 	edge[choice] = scalars[choice];
-	edge_tiebreakers[choice] = point.get_tiebreakers()[choice];
+	edge_tiebreakers[choice] = tiebreakers[choice];
 
 	for(size_t i=0; i<scalars.size(); i++)
 		scalars_file<<scalars[i]<<' ';
@@ -149,7 +149,10 @@ void launch_walker(int max_iterations, int mcmc_steps, int thin)
 	{
 		bool success = walker.advance(mcmc_steps);
 		if(i%thin == 0)
-			fout<<std::setprecision(8)<<walker.get_point()<<std::endl;
+		{
+			walker.get_point().print(fout);
+			fout<<std::endl;
+		}
 		if(!success)
 			break;
 	}

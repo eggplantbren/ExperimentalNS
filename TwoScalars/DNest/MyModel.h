@@ -19,6 +19,10 @@ class MyModel:public DNest3::Model
 		const std::vector<double>& get_scalars() const
 		{ return scalars; }
 
+		// Number of scalars
+		int get_num_scalars() const
+		{ return static_cast<int>(scalars.size()); }
+
 		// Generate the point from the prior
 		void fromPrior();
 
