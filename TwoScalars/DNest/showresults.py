@@ -33,11 +33,12 @@ logx = result[2]
 if logx.min() < levels[:,0].min():
 	print('# WARNING: Went beyond innermost scaffolding point.')
 logw = result[-1].flatten()
+logw = logw - logsumexp(logw)
 savetxt('logw.txt', logw)
 
 # Estimate normalising constant of canonical distribution in truth.py
 temp = logw + 10.*scalars[:,0] + 1.*scalars[:,2]
-logz = logsumexp(temp) - log(len(temp))
+logz = logsumexp(temp)
 print(logz)
 plot(temp)
 show()
