@@ -15,6 +15,10 @@ class MyModel:public DNest3::Model
 	public:
 		MyModel();
 
+		// Getter for scalars
+		const std::vector<double>& get_scalars() const
+		{ return scalars; }
+
 		// Generate the point from the prior
 		void fromPrior();
 
