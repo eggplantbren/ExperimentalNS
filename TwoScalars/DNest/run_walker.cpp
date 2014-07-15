@@ -8,6 +8,7 @@ using namespace DNest3;
 
 int main(int argc, char** argv)
 {
+	int junk = system("rm scalars.txt output.txt");
 	MTSampler<MyModel> sampler = setup_mt<MyModel>(argc, argv);
 
 	while(true)

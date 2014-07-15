@@ -32,12 +32,13 @@ class Walker
 
 	public:
 		Walker();
-		~Walker();
 
 		void initialise();
 		bool advance(int steps);
 
 		const Type& get_point() const { return point; }
+		const std::vector<double>& get_tiebreakers() const
+		{ return tiebreakers; }
 };
 
 // Function to create and launch a walker

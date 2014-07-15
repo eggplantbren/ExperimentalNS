@@ -16,14 +16,6 @@ Walker<Type>::Walker()
 ,edge_tiebreakers(point.get_num_scalars())
 ,iterations(0)
 {
-	std::string filename2("scalars.txt");
-	scalars_file.open(filename2.c_str(), std::ios::out);
-}
-
-template<class Type>
-Walker<Type>::~Walker()
-{
-	scalars_file.close();
 }
 
 template<class Type>
@@ -74,10 +66,6 @@ bool Walker<Type>::advance(int steps)
 	int choice = DNest3::randInt(scalars.size());
 	edge[choice] = scalars[choice];
 	edge_tiebreakers[choice] = tiebreakers[choice];
-
-	for(size_t i=0; i<scalars.size(); i++)
-		scalars_file<<scalars[i]<<' '<<tiebreakers[i]<<' ';
-	scalars_file<<std::endl;
 
 	std::cout<<"# Edge "<<(iterations + 1)<<": (";
 	for(size_t i=0; i<edge.size(); i++)
@@ -139,12 +127,11 @@ bool Walker<Type>::is_okay(const Type& t)
 template<class Type>
 void launch_walker(int max_iterations, int mcmc_steps, int thin)
 {
-	std::string filename("output.txt");
-
 	Walker<Type> walker;
 	walker.initialise();
 
-	std::fstream fout(filename.c_str(), std::ios::out);
+	std::fstream fout("output.txt", std::ios::out|std::ios::app);
+	std::fstream fout2("scalars.txt", std::ios::out|std::ios::app);
 	for(int i=0; i<max_iterations; i++)
 	{
 		bool success = walker.advance(mcmc_steps);
@@ -152,10 +139,17 @@ void launch_walker(int max_iterations, int mcmc_steps, int thin)
 		{
 			walker.get_point().print(fout);
 			fout<<std::endl;
+
+			std::vector<double> scalars = walker.get_point().get_scalars();
+			std::vector<double> tiebreakers = walker.get_tiebreakers();
+			for(size_t i=0; i<scalars.size(); i++)
+				fout2<<scalars[i]<<' '<<tiebreakers[i]<<' ';
+			fout2<<std::endl;
 		}
 		if(!success)
 			break;
 	}
 	fout.close();
+	fout2.close();
 }
 
