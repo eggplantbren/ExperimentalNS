@@ -7,8 +7,9 @@
 #include <fstream>
 
 template<class Type>
-Walker<Type>::Walker(int identity)
+Walker<Type>::Walker(int identity, int scalar)
 :identity(identity)
+,scalar(scalar)
 ,direction(point.get_num_scalars())
 ,edge(point.get_num_scalars())
 ,edge_tiebreakers(point.get_num_scalars())
@@ -51,6 +52,13 @@ void Walker<Type>::initialise()
 	}
 	for(double& d : direction)
 		d /= total;
+
+	// Forget the direction if we've been told which scalar to use.
+	if(scalar != -1)
+	{
+		direction.assign(direction.size(), 0.);
+		direction[scalar] = 1.;
+	}
 
 	point.from_prior();
 	point.from_prior_tiebreakers();
@@ -146,7 +154,7 @@ void launch_walker(int identity, int max_iterations, int mcmc_steps, int thin)
 	filename += std::to_string(identity);
 	filename += std::string(".txt");
 
-	Walker<Type> walker(identity);
+	Walker<Type> walker(identity, -1);
 	walker.initialise();
 
 	std::fstream fout(filename.c_str(), std::ios::out);

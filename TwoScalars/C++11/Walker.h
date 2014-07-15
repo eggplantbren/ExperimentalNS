@@ -17,6 +17,9 @@ class Walker
 		// from this walker.
 		int identity;
 
+		// Which scalar to ascend. Use -1 to get mixed directions
+		int scalar;
+
 		Type point;		
 		std::vector<double> direction;
 		std::vector<double> edge;
@@ -35,7 +38,7 @@ class Walker
 		bool is_okay(const Type& t);
 
 	public:
-		Walker(int identity);
+		Walker(int identity, int scalar);
 		~Walker();
 
 		void initialise();
