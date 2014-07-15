@@ -1,5 +1,6 @@
 from pylab import *
 import postprocess
+from postprocess import logsumexp
 
 # Load the levels from the DNest run
 levels = loadtxt('levels.txt')
@@ -28,5 +29,13 @@ sample_info[:,1:3] = scalars[:, 0:2]
 # log prior weights
 logw = postprocess.postprocess(loaded=[levels, sample_info, sample],\
 					temperature=1E300, plot=False)[-1]
+logw = logw.flatten()
 savetxt('logw.txt', logw)
+
+# Estimate normalising constant of canonical distribution in truth.py
+temp = logw + 10.*scalars[:,0] + 1.*scalars[:,2]
+logz = logsumexp(temp) - log(len(temp))
+print(logz)
+plot(exp(temp - temp.max()))
+show()
 
