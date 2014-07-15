@@ -7,7 +7,7 @@ using namespace std;
 using namespace DNest3;
 
 MyModel::MyModel()
-:params(1000)
+:params(100)
 ,scalars(2)
 {
 
