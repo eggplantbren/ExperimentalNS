@@ -76,7 +76,7 @@ bool Walker<Type>::advance(int steps)
 	edge_tiebreakers[choice] = tiebreakers[choice];
 
 	for(size_t i=0; i<scalars.size(); i++)
-		scalars_file<<scalars[i]<<' ';
+		scalars_file<<scalars[i]<<' '<<tiebreakers[i]<<' ';
 	scalars_file<<std::endl;
 
 	std::cout<<"# Edge "<<(iterations + 1)<<": (";
