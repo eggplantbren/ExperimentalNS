@@ -39,6 +39,6 @@ savetxt('logw.txt', logw)
 temp = logw + 10.*scalars[:,0] + 1.*scalars[:,2]
 logz = logsumexp(temp) - log(len(temp))
 print(logz)
-plot(exp(temp - temp.max()))
+plot(temp)
 show()
 
