@@ -12,7 +12,7 @@ int main(int argc, char** argv)
 	MTSampler<MyModel> sampler = setup_mt<MyModel>(argc, argv);
 
 	while(true)
-		launch_walker<MyModel>(100, 1000, 10);
+		launch_walker<MyModel>(100, 1000, 1);
 
 	return 0;
 }
