@@ -63,7 +63,11 @@ template<class Type>
 bool Walker<Type>::advance(int steps)
 {
 	const std::vector<double>& scalars = point.get_scalars();
-	int choice = DNest3::randInt(scalars.size());
+	int choice;
+	do
+	{
+ 		choice = DNest3::randInt(scalars.size());
+	}while(DNest3::randomU() > direction[choice]);
 	edge[choice] = scalars[choice];
 	edge_tiebreakers[choice] = tiebreakers[choice];
 
