@@ -22,10 +22,10 @@ levels[:, 0] = logx
 levels[:, 1:3] = logl
 scalars = loadtxt('scalars.txt')
 sample = loadtxt('output.txt')
-print(scalars.shape, sample.shape)
 sample_info = empty((scalars.shape[0], sample_info.shape[1]))
 sample_info[:,1:3] = scalars[:, 0:2]
 
-result = postprocess.postprocess(loaded=[levels, sample_info, sample],\
-					temperature=1E300)
+# log prior weights
+logw = postprocess.postprocess(loaded=[levels, sample_info, sample],\
+					temperature=1E300, plot=False)[-1]
 
