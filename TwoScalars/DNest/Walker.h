@@ -31,7 +31,7 @@ class Walker
 		bool is_okay(const Type& t);
 
 	public:
-		Walker(int identity, int scalar);
+		Walker();
 		~Walker();
 
 		void initialise();
@@ -42,9 +42,9 @@ class Walker
 
 // Function to create and launch a walker
 template<class Type>
-void launch_walker(int identity, int thin);
+void launch_walker(int max_iterations, int mcmc_steps, int thin);
 
-//#include "WalkerImpl.h"
+#include "WalkerImpl.h"
 
 #endif
 
