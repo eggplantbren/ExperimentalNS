@@ -28,4 +28,5 @@ sample_info[:,1:3] = scalars[:, 0:2]
 # log prior weights
 logw = postprocess.postprocess(loaded=[levels, sample_info, sample],\
 					temperature=1E300, plot=False)[-1]
+savetxt('logw.txt', logw)
 
