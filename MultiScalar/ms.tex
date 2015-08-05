@@ -19,6 +19,7 @@
 
 In Nested Sampling (NS), we want to infer the function $L(X)$.
 Knowledge about the NS procedure gives us a prior for a sequence of $X$ values
+$\{X_1, X_2, ..., X_N\}$
 obtained from the run. We can, of course, measure the corresponding $L$
 values, and there is an underlying assumption that measurements of $L$ are
 uninformative about $X$ apart from imposing an ordering
@@ -30,6 +31,12 @@ is more commonly called {\it independence}. If we have a proposition $A$ and
 another proposition $B$ and assign independent probabilities, then
 $P(A|B) = P(A)$ and $P(B|A) = P(B)$, learning one of $A$ and $B$
 does not change our knowledge of the other.
+
+If measurements of $L$ are uniformative about $X$ apart from ordering, this
+provides a constraint on the assumed joint prior knowledge of the curve
+$L(X)$ and the NS sequence $\{X_1, X_2, ..., X_N\}$. Whatever this constraint
+turns out to be, there's surely an analogous one when we generalise to
+$M$ scalar functions instead of one.
 
 \end{document}
 
