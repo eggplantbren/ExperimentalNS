@@ -19,7 +19,17 @@
 
 In Nested Sampling (NS), we want to infer the function $L(X)$.
 Knowledge about the NS procedure gives us a prior for a sequence of $X$ values
-obtained from the run.
+obtained from the run. We can, of course, measure the corresponding $L$
+values, and there is an underlying assumption that measurements of $L$ are
+uninformative about $X$ apart from imposing an ordering
+(i.e. $L_i > L_j$ implies $X_i < X_j$). This is related to the fact that the
+progress of NS is invariant under monotonic transformations of $L$.
+
+Uninformativeness is also a property of probability distributions, which
+is more commonly called {\it independence}. If we have a proposition $A$ and
+another proposition $B$ and assign independent probabilities, then
+$P(A|B) = P(A)$ and $P(B|A) = P(B)$, learning one of $A$ and $B$
+does not change our knowledge of the other.
 
 \end{document}
 
