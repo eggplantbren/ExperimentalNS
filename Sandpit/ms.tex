@@ -34,8 +34,17 @@ and I'll take $L(\xx)$ as being the density with respect to background measure
 $\pi$ (i.e. drop $\pi$ from the upcoming equations).
 Let's start calculating the Jeffreys prior.
 \begin{eqnarray}
-\log p(\xx | \lambda) &=& -\log Z(\lambda)
-- \lambda \log L(\xx).
+\log p(\xx | \lambda) &=&  \lambda \log L(\xx) - \log Z(\lambda)
+\end{eqnarray}
+Taking the first partial derivative:
+\begin{eqnarray}
+\frac{\partial}{\partial \lambda}
+\log p(\xx | \lambda) &=& \log L(\xx) - \frac{Z'(\lambda)}{Z(\lambda)}
+\end{eqnarray}
+and the second:
+\begin{eqnarray}
+\frac{\partial^2}{\partial \lambda^2}
+\log p(\xx | \lambda) &=& \frac{Z'(\lambda)^2 - Z(\lambda)Z''(\lambda)}{Z(\lambda)^2}
 \end{eqnarray}
 
 \end{document}
