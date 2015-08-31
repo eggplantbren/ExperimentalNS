@@ -25,7 +25,18 @@ Z(\lambda) &=& \int L(\xx)^\lambda \pi(\xx) \, d\xx.
 \end{eqnarray}
 Suppose we want to evaluate $Z$ at a particular $\lambda$ value which is
 unknown, and that our state of knowledge of $\lambda$ is the Jeffreys prior.
-I'm just curious what this would imply.
+I'm just curious what this would imply. The conditional distributions of
+interest are
+\begin{eqnarray}
+p(\xx | \lambda) &=& \frac{1}{Z(\lambda)}\pi(\xx)L(\xx)^\lambda.
+\end{eqnarray}
+and I'll take $L(\xx)$ as being the density with respect to background measure
+$\pi$ (i.e. drop $\pi$ from the upcoming equations).
+Let's start calculating the Jeffreys prior.
+\begin{eqnarray}
+\log p(\xx | \lambda) &=& -\log Z(\lambda)
+- \lambda \log L(\xx).
+\end{eqnarray}
 
 \end{document}
 
