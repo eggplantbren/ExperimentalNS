@@ -1,0 +1,31 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage{graphicx}
+\usepackage{natbib}
+\usepackage{dsfont}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[left=3cm,top=3cm,right=3cm]{geometry}
+
+\newcommand{\xx}{\boldsymbol{x}}	% The unknown parameters
+\newcommand{\data}{\mathbf{D}}  % The data
+\newcommand{\dx}{d^N\mathbf{x}} % Volume element in parameter space
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\textfraction}{0.1}
+\parindent=0cm
+
+\title{}
+\author{}
+
+\begin{document}
+\maketitle
+
+Prior $\pi(\xx)$, likelihood $L(\xx)$. Consider the partition function
+\begin{eqnarray}
+Z(\lambda) &=& \int L(\xx)^\lambda \pi(\xx) \, d\xx.
+\end{eqnarray}
+Suppose we want to evaluate $Z$ at a particular $\lambda$ value which is
+unknown, and that our state of knowledge of $\lambda$ is the Jeffreys prior.
+I'm just curious what this would imply.
+
+\end{document}
+
