@@ -19,7 +19,10 @@
 \begin{document}
 \maketitle
 
-Prior $\pi(\xx)$, likelihood $L(\xx)$. Consider the partition function
+Prior $\pi(\xx)$, likelihood $L(\xx)$.
+
+\section{Canonical distributions}
+Consider the partition function
 \begin{eqnarray}
 Z(\lambda) &=& \int L(\xx)^\lambda \pi(\xx) \, d\xx.
 \end{eqnarray}
@@ -46,6 +49,25 @@ and the second:
 \frac{\partial^2}{\partial \lambda^2}
 \log p(\xx | \lambda) &=& \frac{Z'(\lambda)^2 - Z(\lambda)Z''(\lambda)}{Z(\lambda)^2}
 \end{eqnarray}
+which is rather messy and inelegant, so I'll stop there.
+
+\section{Microcanonical distributions}
+This will probably be more fruitful. Define a microcanonical distribution by
+\begin{eqnarray}
+p(\xx | \ell) &=& \frac{1}{Z(\ell)}\pi(\xx)\mathds{1}
+\left(L(\xx) \in [l, l + h]\right)
+\end{eqnarray}
+Again, drop $\pi$. 
+
+
+\section{A third idea}
+Define the NS truncated distributions
+\begin{eqnarray}
+p(\xx | \ell) &=& \frac{1}{Z(\ell)}\pi(\xx)\mathds{1}
+\left(L(\xx) > l\right)
+\end{eqnarray}
+Again, drop $\pi$. 
+
 
 \end{document}
 
