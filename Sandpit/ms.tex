@@ -22,7 +22,7 @@
 
 
 \section{Analysis of a phase change}
-The likelihood curve is $L(X)$. Defining $u = \ln(X)$ and $\ell = \ln L$, the likelihood is
+The likelihood curve is $L(X)$. Defining $u = \log(X)$ and $\ell = \log L$, the likelihood is
 then $L(u)$ (overloading $L$, so it remains the likelihood, not the same
 function). The prior for $u$ is $-u \sim \textnormal{Expl}(1)$, i.e.
 
@@ -45,28 +45,22 @@ p(u; \beta) &=& \frac{1}{Z(\beta)}\exp(u)L(u)^\beta
 
 Taking the log of the posterior density:
 \begin{eqnarray}
-\ln p(u; \beta) &=& -\ln Z(\beta) + u + \beta \ell(u)
+\log p(u; \beta) &=& -\log Z(\beta) + u + \beta \ell(u)
 \end{eqnarray}
 
 We can look for posterior modes (and antimodes!) by solving
-$\frac{\partial}{\partial u} \ln p(u; \beta) = 0$, i.e.
+$\frac{\partial}{\partial u} \log p(u; \beta) = 0$, i.e.
 \begin{eqnarray}
 1 + \beta \frac{\partial \ell}{\partial u} &=& 0
 \end{eqnarray}
 Therefore modes and antimodes occur when
 \begin{eqnarray}
-\frac{\partial \ell}{\partial u} &=& -\frac{-1}{\beta}\\
+\frac{\partial \ell}{\partial u} &=& -\frac{1}{\beta}\\
 &=& -T.
 \end{eqnarray}
 
 
-
-
-
 \newpage
-
-WARNING: MOST OF THIS IS PROBABLY WRONG. I THINK I MISREMEMBERED THE
-EQUATION FOR THE FISHER METRIC
 
 Prior $\pi(\xx)$, likelihood $L(\xx)$.
 
@@ -91,14 +85,25 @@ Let's start calculating the Jeffreys prior.
 Taking the first partial derivative:
 \begin{eqnarray}
 \frac{\partial}{\partial \lambda}
-\log p(\xx | \lambda) &=& \log L(\xx) - \frac{Z'(\lambda)}{Z(\lambda)}
+\log p(\xx | \lambda) &=&
+\left[\log L(\xx)\right] - \frac{Z'(\lambda)}{Z(\lambda)}
 \end{eqnarray}
-and the second:
+
+Squaring this gives
 \begin{eqnarray}
-\frac{\partial^2}{\partial \lambda^2}
-\log p(\xx | \lambda) &=& \frac{Z'(\lambda)^2 - Z(\lambda)Z''(\lambda)}{Z(\lambda)^2}
+\left[\frac{\partial}{\partial \lambda}
+\log p(\xx | \lambda)\right]^2 &=&
+\left[\log L(\xx)\right]^2 - 2\frac{Z'(\lambda)}{Z(\lambda)}\log L(\xx)
++ \left[\frac{Z'(\lambda)}{Z(\lambda)}\right]^2
 \end{eqnarray}
-which is rather messy and inelegant, so I'll stop there.
+
+
+%and the second:
+%\begin{eqnarray}
+%\frac{\partial^2}{\partial \lambda^2}
+%\log p(\xx | \lambda) &=& \frac{Z'(\lambda)^2 - Z(\lambda)Z''(\lambda)}{Z(\lambda)^2}
+%\end{eqnarray}
+%which is rather messy and inelegant, so I'll stop there.
 
 \section{Microcanonical distributions}
 This will probably be more fruitful. Define a microcanonical distribution by
