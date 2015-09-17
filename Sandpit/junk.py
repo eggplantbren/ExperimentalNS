@@ -17,8 +17,14 @@ def generate_sequence(N=100, iterations=100):
 		keep[i] = logX.max()
 	return keep
 
+def log_likelihood(logX):
+	"""
+	An invented log-likelihood function.
+	"""
+	logL = (-logX)**0.5
+	return logL
 
-logX = generate_sequence(1)
-plot(logX, 'bo-')
+logX = generate_sequence()
+plot(logX, log_likelihood(logX), 'bo-')
 show()
 
